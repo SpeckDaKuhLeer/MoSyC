@@ -1,5 +1,6 @@
+SOURCE_DIR=./src/
 INSTALLATION_DIR=./
-COMMAND=gcc -lm -std=gnu99 -lportaudio
+C_COMPILER=gcc -std=gnu99
 
-MoSyC: core.c
-	$(COMMAND) -o $(INSTALLATION_DIR)MoSyC core.c
+mosyc: $(SOURCE_DIR)core.c
+	$(C_COMPILER) -lm -lportaudio -o $(INSTALLATION_DIR)mosyc $(SOURCE_DIR)core.c
