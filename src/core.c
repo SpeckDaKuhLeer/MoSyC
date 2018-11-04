@@ -10,8 +10,7 @@
 #define _NUMBER_PI_DOUBLE 6.2831853071796 // pi * 2, saves calculation time
 
 
-int main()
-{
+int main(int argumentCount, char **arguments){
     int16_t buffer[_SAMPLERATE];
     double frequency = 440;
     
