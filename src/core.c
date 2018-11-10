@@ -8,7 +8,6 @@
 // define boolean type
 typedef enum{False, True} boolean;
 
-
 void exitProgram(){
     disableCursesWindow();
     exit(1);
