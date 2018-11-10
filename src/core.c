@@ -2,38 +2,31 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <math.h>
+#include <curses.h>
 
-#include "gui_manager.h"
-
-// define boolean type
-typedef enum{False, True} boolean;
-
-void exitProgram(){
-    disableCursesWindow();
-    exit(1);
-}
+// handles the text user interface (tui)
+#include "consolegraphics.h"
 
 int main(int argumentCount, char **arguments){
-    initCursesWindow();
-    
     char lastChar;
     int8_t clearCounter = 0;
     
+    CGstart();
     while(1){
         lastChar = (char)getch();
-        printf("%c-", lastChar);
-        fflush(stdout);
+        printf("%d-", lastChar);
+        CGprintBuffer();
         
         if(lastChar == 'q'){
-            exitProgram();
+            CGstop();
+            exit(1);
         }
         
         if(++clearCounter == 100){
             clearCounter = 0;
-            clearCursesWindow();
         }
     }
+    CGstop();
     
-    disableCursesWindow();
     return 0;
 }

@@ -1,7 +1,8 @@
-#include <curses.h>
+#ifndef CONSOLEGRAPHICSDEFINE
+#define CONSOLEGRAPHICSDEFINE
 
-WINDOW* mainCursesWindow;
+void CGstart();
+void CGstop();
+void CGprintBuffer();
 
-void initCursesWindow();
-void clearCursesWindow();
-void disableCursesWindow();
+#endif
